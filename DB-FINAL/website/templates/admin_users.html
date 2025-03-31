@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Users{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='admin_users.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
+
+
+<div class="user-container">
+    <aside class="admin-sidebar">
+        <h2>Manage Users</h2>
+        <ul>
+            <li><a href="{{ url_for('admin.admin_dashboard') }}">Admin Dashboard</a></li>
+            <li><a href="{{ url_for('admin.manage_users') }}">Manage Users</a></li>
+            <li><a href="{{ url_for('admin.manage_classes') }}">View Assigned Classes</a></li>
+        </ul>
+    </aside>
+
+    <main class="users-main">
+        <h2>Manage Users</h2>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td>{{ user[1] }}</td>  {# name #}
+                <td>{{ user[2] }}</td>  {# email #}
+                <td>{{ user[3] }}</td>  {# role #}
+                <td>
+                    {% if session.get('role') == 'admin' %}
+                        {% if user[3] == 'user' %}
+                            <a href="{{ url_for('admin.promote_to_staff', user_id=user[0]) }}">Promote To Staff</a>
+                        {% elif user[3] == 'staff' %}
+                            <a href="{{ url_for('admin.demote_to_user', user_id=user[0]) }}">Demote To User</a>
+                        {% endif %}
+                    {% else %}
+                        <span>-</span>
+                    {% endif %}
+                </td>
+                
+            {% endfor %}
+        </table>
+    </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,164 @@
+/* Hero Section */
+.locations-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 120px;
+    background-image: url('{{url_for("static, filename="sculptvaultlocation.png") }}');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 400px; /* Adjust the height for a more spacious look */
+    border-radius: 10px;
+    position: relative;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    text-align: left;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+    z-index: 1;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure text is legible on the background */
+.locations-hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Darken the image for text visibility */
+    border-radius: 10px;
+    z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .locations-hero {
+        flex-direction: column;
+        text-align: center;
+        height: 500px; /* Adjust height for mobile */
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-top: 20px;
+    }
+}
+
+/* General page styling */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f0ff;
+    text-align: center;
+    color: #2d2d2d;
+    padding: 20px;
+}
+
+/* Page title */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* City section header */
+.city-section h2 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Locations grid */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Individual location card */
+.location-card {
+    position: relative;
+    background: rgb(90, 34, 34);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+}
+
+/* New hover functionality */
+.location-card .address {
+    font-size: 1rem;
+    color: #ffffff;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.location-card .branch {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.location-card:hover .branch {
+    opacity: 1;
+}
+
+.location-card:hover .address {
+    opacity: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+}

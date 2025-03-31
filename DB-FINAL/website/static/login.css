@@ -1,0 +1,78 @@
+/* ====== Form Styling (Same as Sign-up) ====== */
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    margin-top: 100px;
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #222;
+    color: white;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #600000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #800000;
+}
+
+.login-container p {
+    margin-top: 20px;
+}
+
+/* ====== Flash Messages (Same as Sign-up) ====== */
+.flash-message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.flash-message.error {
+    background-color: #ff4444;
+    color: white;
+}
+
+.flash-message.success {
+    background-color: #44aa44;
+    color: white;
+}
+
+/* ====== Responsive for Mobile (Same as Sign-up) ====== */
+@media (max-width: 900px) {
+    .login-container {
+        width: 90%;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - My Schedule{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='dashboard.css')}}">
+
+<h2>Welcome, {{ user[0] }}</h2>
+<p>Email: {{ user[1] }}</p>
+<p>Membership Type: {{ user[2] if user[2] else 'No Membership' }}</p>
+
+<h2>My Class Schedule</h2>
+
+
+<div class="schedule-container">
+    {% for class in classes %}
+    <div class="class-card">
+        <h3>{{ class[1] }}</h3>
+        <p><strong>Time:</strong> {{ class[2] }}</p>
+        <p><strong>Date:</strong> {{ class[3] }}</p>
+        <p><strong>Location:</strong> {{ class[4] }}</p>
+        <div class="actions">
+            
+            <a href="{{ url_for('views.delete_class', class_id=class[0]) }}" class="delete" onclick="return confirm('Are you sure?');">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<h3>Book a Class</h3>
+<form action="{{ url_for('views.book_class') }}" method="post">
+    <label for="class_id">Select a Class:</label>
+    <select name="class_id" required>
+        {% for c in available_classes %}
+        <option value="{{ c[0] }}">{{ c[1] }} - {{ c[2] }} - {{ c[3] }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Book</button>
+</form>
+
+<div style="margin-top: 30px;">
+    <a href="{{ url_for('views.membership') }}">
+        <button style="padding: 10px 20px; background-color: #600000; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            View Membership Options
+        </button>
+    </a>
+</div>
+
+
+{% endblock %}

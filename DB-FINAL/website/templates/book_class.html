@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Book a Class{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+<h2>My Booked Classes</h2>
+<table>
+    <tr>
+        <th>Class</th>
+        <th>Time</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Action</th>
+    </tr>
+    {% for class in booked_classes %}
+    <tr>
+        <td>{{ class[1] }}</td>
+        <td>{{ class[2] }}</td>
+        <td>{{ class[3] }}</td>
+        <td>{{ class[4] }}</td>
+        <td>
+            <a href="{{ url_for('views.cancel_class', booking_id=class[0]) }}" onclick="return confirm('Cancel this class?');">Cancel</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

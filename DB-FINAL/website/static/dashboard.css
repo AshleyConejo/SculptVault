@@ -1,0 +1,125 @@
+/* General Styling */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f7fc;
+    color: #604848;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Headings */
+h2 {
+    font-size: 2.2rem;
+    margin: 30px 0 10px;
+    color: #604848;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #fefefe;
+}
+
+/* Class Schedule Grid */
+.schedule-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Class Card */
+.class-card {
+    background-color: #fff;
+    padding: 18px 22px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.class-card h3 {
+    font-size: 1.3rem;
+    color: #600000;
+    margin-bottom: 10px;
+}
+
+.class-card p {
+    font-size: 0.95rem;
+    margin: 4px 0;
+    color: #444;
+}
+
+.class-card .actions {
+    margin-top: 12px;
+}
+
+.class-card a {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    display: inline-block;
+    color: white;
+    font-weight: 500;
+}
+
+.class-card a.edit {
+    background-color: #5a0000;
+}
+
+.class-card a.delete {
+    background-color: #c0392b;
+}
+
+/* Booking Form */
+form {
+    background-color: #000000;
+    padding: 25px;
+    max-width: 480px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #000000;
+}
+
+form h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #ffffff;
+    text-align: left;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+form button {
+    background-color: #600000;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    width: 100%;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #7a0000;
+}

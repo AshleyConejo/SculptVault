@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %} Sculpt Vault {% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+
+<!-- Header Section -->
+<div class="hero-container">
+    <div class="hero-text">
+        <h1 class="hero-title">IT'S <span class="highlight-red">GYM</span> TIME. LET'S GO</h1>
+        <h2 class="hero-subtitle">WE ARE READY TO <span class="highlight-red">HELP YOU</span></h2>
+
+        <!-- Learn More (Not a button, just text) -->
+        <p class="learn-more-text">
+            <a href="#get-started" class="learn-more-link">Learn More ↓</a>
+        </p>
+    </div>
+</div>
+
+
+<!-- Section 1: Get Started -->
+<div class="content-section" id="get-started">
+    <div class="section-image image-overlay">
+        <img src="{{ url_for('static', filename='Get Started.jpeg') }}" alt="Membership Image">
+    </div>
+    <div class="section-text">
+        <h2 class="section-header">
+            <a href="{{ url_for('views.membership') }}">Get Started Now!</a>
+            <p>Choose your membership level</p>
+        </h2>
+    </div>
+</div>
+
+<!-- Section 2: Group Fitness -->
+<div class="content-section reverse">
+    <div class="section-text">
+        <h2 class="section-header">
+            <a href="{{url_for('views.classes')}}">Group Fitness Classes</a>
+            <p>Choose from our diverse array of professionally led classes</p>
+        </h2>
+    </div>
+    <div class="section-image image-overlay">
+        <img src="{{ url_for('static', filename='Group Fitness.jpeg') }}" alt="Classes Image">
+    </div>
+</div>
+
+<!-- Section 3: Locations -->
+<div class="content-section">
+    <div class="section-image image-overlay">
+        <img src="{{ url_for('static', filename='Locations.jpeg') }}" alt="Location Image">
+    </div>
+    <div class="section-text">
+        <h2 class="section-header">
+            <a href="{{url_for('views.locations')}}">Locations</a>
+            <p>Find a location near you</p>
+        </h2>
+    </div>
+</div>
+
+{% endblock %}

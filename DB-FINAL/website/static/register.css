@@ -1,0 +1,169 @@
+/* ====== General Page Style ====== */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+    box-sizing: border-box;
+}
+
+/* ====== Wrapper and Headings ====== */
+.signup-wrapper {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.signup-wrapper h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.signup-wrapper h3 {
+    margin-bottom: 30px;
+    color: #ccc;
+    font-weight: normal;
+}
+
+/* ====== Steps Section ====== */
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.step-box {
+    background-color: #ff4444;
+    color: black;
+    width: 280px;
+    min-height: 280px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+}
+
+.step-box:hover {
+    transform: translateY(-5px);
+    background-color: #600000;
+}
+
+/* ====== Clickable Header ====== */
+.step-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.step-header:hover {
+    color: #ff4444;
+}
+
+/* ====== Paragraph inside steps ====== */
+.step-box p {
+    font-size: 14px;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ====== Form Styling ====== */
+.signup-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.signup-container h2 {
+    margin-bottom: 20px;
+}
+
+.signup-container label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #222;
+    color: white;
+    box-sizing: border-box;
+}
+
+.signup-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #600000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-container button:hover {
+    background-color: #800000;
+}
+
+.signup-container p {
+    margin-top: 20px;
+}
+
+/* ====== Flash Messages ====== */
+.flash-message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.flash-message.error {
+    background-color: #ff4444;
+    color: white;
+}
+
+.flash-message.success {
+    background-color: #44aa44;
+    color: white;
+}
+
+/* ====== Responsive for Mobile ====== */
+@media (max-width: 900px) {
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step-box {
+        width: 90%;
+        min-height: auto;
+    }
+
+    .signup-container {
+        width: 90%;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Assigned Classes{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='admin_classes.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
+
+<div class="classes-container">
+        <aside class="admin-sidebar">
+            <h2>Assigned Classes</h2>
+            <ul>
+                <li><a href="{{ url_for('admin.admin_dashboard') }}">Admin Dashboard</a></li>
+                <li><a href="{{ url_for('admin.manage_users') }}">Manage Users</a></li>
+                <li><a href="{{ url_for('admin.manage_classes') }}">View Assigned Classes</a></li>
+
+            </ul>
+        </aside> 
+        
+
+    <main class="classes-main">
+        <h2>Assigned Classes</h2>
+        <table border="1">
+            <tr>
+                <th>Class Name</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Coach</th>
+                <th>Location</th>
+            </tr>
+            {% for class in classes %}
+            <tr>
+                <td>{{ class[1] }}</td>
+                <td>{{ class[2] }}</td>
+                <td>{{ class[3] }}</td>
+                <td>{{ class[4] }}</td>
+                <td>{{ class[5] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+</div>
+
+{% endblock %}

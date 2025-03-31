@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Gym Locations{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='locations.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
+
+<section class="locations-hero">
+    <div class="hero-text">
+        <h1>FIND YOUR SCULPT VAULT</h1>
+        <p>Your fitness journey starts here. Find a Sculpt Vault near you and take the first step towards a healthier you.</p>
+    </div>
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='location.png') }}" alt="Gym Locations">
+    </div>
+</section>
+
+{% for city, locs in locations_by_city.items() %}
+  <section class="city-section">
+      <h2>{{ city }} Locations</h2>
+      <div class="locations-grid">
+          {% for loc in locs %}
+          <div class="location-card">
+              <div class="address">{{ loc['address'] }}</div>
+              <div class="branch">{{ loc['branch'] }}</div>
+          </div>
+          {% endfor %}
+      </div>
+  </section>
+{% endfor %}
+
+{% endblock %}

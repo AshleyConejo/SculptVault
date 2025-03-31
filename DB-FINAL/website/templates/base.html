@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Home{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body class="flex-layout">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('views.home') }}" class="brand">Sculpt Vault</a>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('views.home') }}">Home</a></li>
+                <li><a href="{{ url_for('views.locations') }}">Locations</a></li>
+                <li><a href="{{ url_for('views.classes') }}">Classes</a></li>
+
+                {% if 'loggedin' in session %}
+                {% if session.get('role') == 'admin' %}
+                <li><a href="{{ url_for('admin.admin_dashboard') }}">Dashboard</a></li>
+            {% elif session.get('role') == 'staff' %}
+                <li><a href="{{ url_for('admin.manage_classes') }}">Dashboard</a></li>
+            {% else %}
+                <li><a href="{{ url_for('views.dashboard') }}">Dashboard</a></li>
+            {% endif %}
+            
+                    <li><a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                    <li><a href="{{ url_for('auth.sign_up') }}" class="register-btn">Register</a></li>
+                {% endif %}
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="text-center footer">
+        <h4>Copyright &copy; 2025 All rights reserved by Sculpt Vault.</h4>
+    </footer>
+
+    <script src="{{ url_for('static', filename='javafile.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Select a Membership{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='membership.css') }}">
+
+<h1 class="main-title">SELECT A MEMBERSHIP</h1>
+
+<div class="membership-container">
+    {% for membership in memberships %}
+    <div class="membership-card">
+        <div class="membership-header">
+            <h3>{{ membership[1] }}</h3> <!-- Membership Type -->
+        </div>
+        <div class="membership-price">
+            <p class="price">${{ membership[2] }} <span>per month</span></p>
+            <p class="fee"> $0.00 Initiation Fee </p>
+            <p class="fee"> $69.00 Annual Fee* </p>
+            <p class="location"> {% if membership[1] == "Basic" %} Club of Enrollment {% else %} Nationwide Access {% endif %} </p>
+        </div>
+        <form action="{{ url_for('views.select_membership') }}" method="post">
+            <input type="hidden" name="membership_id" value="{{ membership[0] }}">
+            <button type="submit" class="select-btn">SELECT</button>
+        </form>
+        <div class="membership-includes">
+            <h4>INCLUDES</h4>
+            <ul>
+                <li>Unlimited Club Visits</li>
+                <li>Use of All Strength and Cardio Equipment</li>
+                <li>Use of Functional Turf Area+</li>
+                <li>Group Fitness Classes</li>
+                <li>Use of Basketball, Volleyball, Squash & Racquetball Courts+</li>
+                <li>Use of Lap Pool and Whirlpool Spa+</li>
+                <li>Use of Locker Room and Sauna+</li>
+                <li>Complimentary Fitness Assessment+</li>
+                {% if membership[1] != "Basic" %}
+                <li><strong>1 guest per visit</strong></li>
+                <li class="highlighted">Nationwide Access</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

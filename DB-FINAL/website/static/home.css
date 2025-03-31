@@ -1,0 +1,429 @@
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    background-color: #000000;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    position: fixed; /* Optional: makes navbar fixed on scroll */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Stay on top */
+}
+
+/* Flexbox for horizontal layout */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Brand/logo */
+.navbar .brand {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Nav links */
+.nav-links {
+    list-style: none;
+    display: flex; /* Horizontal alignment */
+    gap: 20px; /* Space between links */
+    margin: 0;
+    padding: 0;
+}
+
+/* Individual link items */
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+/* Hover effect */
+.nav-links li a:hover {
+    background-color: #333;
+}
+
+/* Optional: buttons */
+.register-btn, .logout-btn {
+    background-color: #600000;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+/* Optional: mobile menu icon */
+.menu-toggle {
+    display: none; /* Hide by default for desktop */
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide links initially */
+        position: absolute;
+        right: 0;
+        top: 60px; /* Below navbar */
+        background-color: #111;
+        flex-direction: column;
+        width: 200px;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger icon */
+    }
+}
+/* Hero Section */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* ✅ Aligns everything to the left */
+    height: 80vh;
+    
+    padding-left: 10%;
+}
+
+.hero-text {
+    text-align: left; /* ✅ Ensures text stays on the left */
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.highlight-red {
+    color: #5B0B07; /* Dark red color */
+    font-weight: bold;
+}
+
+/* Learn More - Just Text with Glow */
+.learn-more-text {
+    margin-top: 20px;
+}
+
+.learn-more-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff3b30; /* Red Text */
+    text-decoration: none;
+    text-shadow: 2px 2px 10px rgba(255, 59, 48, 0.7); /* Glowing Red Shadow */
+    transition: text-shadow 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.learn-more-link:hover {
+    text-shadow: 2px 2px 20px rgba(255, 59, 48, 1); /* More intense glow */
+    transform: translateY(3px);
+}
+
+/* Learn More Section */
+.info-section {
+    padding: 80px 10%;
+    background-color: #121212;
+    color: white;
+    text-align: left;
+}
+
+
+/* Header Container */
+.header-container {
+    text-align: center;
+    padding: 50px 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+    max-width: 800px;
+}
+
+.header-container h1 {
+    font-size: 42px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.header-container p {
+    font-size: 18px;
+    color: #f0f0f0;
+}
+
+/* Section Styling */
+.content-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 50px auto;
+    padding: 30px;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+/* Section Headers */
+.section-header {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Image Styling */
+.section-image {
+    position: relative;
+    width: 45%;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.section-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.section-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Text Section */
+.section-text {
+    width: 50%;
+    color: white;
+    text-align: left;
+}
+
+/* Links */
+.section-text a {
+    display: inline-block;
+    font-size: 18px;
+    color: #ff4444;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+}
+
+.section-text a:hover {
+    color: #ff6666;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .section-image, .section-text {
+        width: 100%;
+    }
+
+    .header-container {
+        padding: 30px 15px;
+    }
+
+    .header-container h1 {
+        font-size: 36px;
+    }
+}
+
+/* Maintain existing link styles */
+a {
+    color: #600000;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Optional spacing and text improvements */
+h2, h3, h4 {
+    margin-bottom: 10px;
+}
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+    color: white;
+
+    padding-top: 80px;
+}
+
+/* Style h1 */
+h1 {
+    color: white;
+    
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 60px auto;
+}
+
+/* Style for h2, h3 */
+h2, h3 {
+    margin: 10px 0;
+}
+
+/* Links */
+a {
+    color: #600000;
+    text-decoration: none;
+    font-weight: bold;
+    display: block; /* Ensure links appear under their respective headers */
+    margin-top: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Description paragraph */
+p {
+    color: #8d8d8d;
+    font-size: 18px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+/* Align h2 & h3 sections side by side */
+.main-sections {
+    display: flex;
+    justify-content: center; /* Center them horizontally */
+    gap: 50px; /* Space between them */
+    margin-bottom: 40px;
+}
+
+.section {
+    text-align: center;
+    max-width: 300px;
+}
+
+/* Locations section */
+.locations-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0;
+    gap: 20px; /* Space between image and text */
+    padding: 0 20px;
+}
+
+/* Placeholder for image */
+.locations-image {
+    background-color: white;
+    width: 70%; /* Half screen width */
+    max-width: 600px;
+    height: auto; /* Maintain aspect ratio */
+    margin: auto;
+    
+}
+
+/* Location info */
+.location-info {
+    width: 30%;
+    color: white;
+    text-align: left;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .locations-section {
+        flex-direction: column; /* Stack vertically on mobile */
+        align-items: center;
+        text-align: center;
+    }
+
+    .locations-image, .locations-text {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .locations-image {
+        max-width: 100%; /* Prevent overflow */
+    }
+}
+
+h4 {
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 50px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-image: url('/static/background.jpeg'); /* Adjust filename */
+    background-size: cover; /* Cover entire screen */
+    background-position: center;
+    background-attachment: fixed; /* Optional: Makes background fixed while scrolling */
+    background-repeat: no-repeat;
+}
+
+/* Optional: Add a semi-transparent overlay over background if content needs better contrast */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: -1;
+}
+
+/* Ensure section headers with links are styled properly */
+.section-header a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.section-header a:hover {
+    color: #ff4444;
+    text-decoration: underline;
+}
+
+.footer{
+    text-align: center;
+    color: white;
+}
