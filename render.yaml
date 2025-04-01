@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: sculptvault
+    env: python
+    buildCommand: "pip install -r DB-FINAL/requirements.txt"
+    startCommand: "gunicorn main:app"
+    workingDir: DB-FINAL
+    buildFilter:
+      paths:
+        - DB-FINAL/**
