@@ -9,10 +9,11 @@ mysql = MySQL()
 def application():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'ACHLI'
-    app.config['MYSQL_HOST'] = 'localhost'  
+    app.config['MYSQL_HOST'] = 'shinkansen.proxy.rlwy.net'
+    app.config['MYSQL_PORT'] = 48324  
     app.config['MYSQL_USER'] = 'root'  
-    app.config['MYSQL_PASSWORD'] = 'admin'  
-    app.config['MYSQL_DB'] = 'gym_management'  
+    app.config['MYSQL_PASSWORD'] = 'VbckqelZgKDVuQqCinBlusRoKnuvULcV'  
+    app.config['MYSQL_DB'] = 'railway'  
 
     from .views import views
     from .auth import auth
