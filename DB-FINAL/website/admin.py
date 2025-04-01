@@ -100,7 +100,6 @@ def manage_classes():
     cursor.close()
 
     return render_template('admin_classes.html', classes=classes)
-
 @admin.route('/admin/classes/add', methods=['GET', 'POST'])
 def add_class():
     if session.get('role') != 'admin':
@@ -117,7 +116,7 @@ def add_class():
         person_id = request.form['person_id']
 
         cursor.execute("""
-            INSERT INTO classes (name, time, date, location_ID, person_ID)
+            INSERT INTO classes (name, time, date, location_ID, instructor_ID)
             VALUES (%s, %s, %s, %s, %s)
         """, (name, time, date, location_id, person_id))
         mysql.connection.commit()
@@ -136,6 +135,7 @@ def add_class():
 
     return render_template('add_class.html', locations=locations, coaches=coaches)
 
+
 @admin.route('/admin/classes/edit/<int:class_id>', methods=['GET', 'POST'])
 def edit_class(class_id):
     if session.get('role') != 'admin':
@@ -153,7 +153,7 @@ def edit_class(class_id):
 
         cursor.execute("""
             UPDATE classes
-            SET name = %s, time = %s, date = %s, location_ID = %s, person_ID = %s
+            SET name = %s, time = %s, date = %s, location_ID = %s, instructor_ID = %s
             WHERE class_ID = %s
         """, (name, time, date, location_id, person_id, class_id))
         mysql.connection.commit()
@@ -178,6 +178,7 @@ def edit_class(class_id):
     cursor.close()
 
     return render_template('edit_class.html', class_data=class_data, locations=locations, coaches=coaches)
+
 
 
 
