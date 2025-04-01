@@ -37,8 +37,8 @@
                 <td>{{ class[4] }}</td>
                 <td>{{ class[5] }}</td>
                 <td>
-                    <a href="{{ url_for('admin.edit_class', class_id=class[0]) }}">Edit</a> |
-                    <a href="{{ url_for('admin.delete_class', class_id=class[0]) }}" onclick="return confirm('Are you sure?')">🗑 Delete</a>
+                    <a href="{{ url_for('admin.edit_class', class_id=class[0]) }}">Edit</a> 
+                    <a href="{{ url_for('admin.delete_class', class_id=class[0]) }}" onclick="return confirm('Are you sure?')">Delete</a>
                 </td>
             </tr>
             {% endfor %}

@@ -161,18 +161,27 @@ def edit_class(class_id):
         flash("Class updated!", "success")
         return redirect(url_for('admin.manage_classes'))
 
-    cursor.execute("SELECT * FROM classes WHERE class_ID = %s", (class_id,))
+    # Updated SELECT to match the form's expected order
+    cursor.execute("""
+        SELECT name, time, date, location_ID, person_ID
+        FROM classes
+        WHERE class_ID = %s
+    """, (class_id,))
     class_data = cursor.fetchone()
+
     cursor.execute("SELECT location_ID, branch FROM locations")
     locations = cursor.fetchall()
+
     cursor.execute("""
         SELECT person.person_ID, person.name FROM person
         JOIN staff ON person.person_ID = staff.person_ID
     """)
     coaches = cursor.fetchall()
+
     cursor.close()
 
     return render_template('edit_class.html', class_data=class_data, locations=locations, coaches=coaches)
+
 
 @admin.route('/admin/classes/delete/<int:class_id>')
 def delete_class(class_id):
