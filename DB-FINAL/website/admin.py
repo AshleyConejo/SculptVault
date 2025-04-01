@@ -10,7 +10,7 @@ def admin_required():
 
 @admin.route('/admin/dashboard')
 def admin_dashboard():
-    if 'loggedin' not in session or session.get('role') != 'admin':
+    if 'loggedin' not in session or session.get('role') not in ['admin', 'staff']:
         flash("Unauthorized access!", "error")
         return redirect(url_for('auth.login'))
 
@@ -78,28 +78,29 @@ def manage_classes():
 
     if session.get('role') == 'admin':
         cursor.execute("""
-            SELECT classes.class_ID, classes.name, classes.time, classes.date,
-                   person.name AS coach_name, locations.branch
-            FROM classes
-            JOIN staff ON classes.person_ID = staff.person_ID
-            JOIN person ON staff.person_ID = person.person_ID
-            JOIN locations ON classes.location_ID = locations.location_ID
+            SELECT c.class_ID, c.name, c.time, c.date,
+                   p.name AS coach_name, l.branch
+            FROM classes c
+            LEFT JOIN staff s ON c.instructor_ID = s.person_ID OR c.person_ID = s.person_ID
+            LEFT JOIN person p ON s.person_ID = p.person_ID
+            LEFT JOIN locations l ON c.location_ID = l.location_ID
         """)
     else:
         cursor.execute("""
-            SELECT classes.class_ID, classes.name, classes.time, classes.date,
-                   person.name AS coach_name, locations.branch
-            FROM classes
-            JOIN staff ON classes.person_ID = staff.person_ID
-            JOIN person ON staff.person_ID = person.person_ID
-            JOIN locations ON classes.location_ID = locations.location_ID
-            WHERE staff.person_ID = %s
+            SELECT c.class_ID, c.name, c.time, c.date,
+                   p.name AS coach_name, l.branch
+            FROM classes c
+            LEFT JOIN staff s ON c.instructor_ID = s.person_ID OR c.person_ID = s.person_ID
+            LEFT JOIN person p ON s.person_ID = p.person_ID
+            LEFT JOIN locations l ON c.location_ID = l.location_ID
+            WHERE s.person_ID = %s
         """, (session['id'],))
 
     classes = cursor.fetchall()
     cursor.close()
 
     return render_template('admin_classes.html', classes=classes)
+
 @admin.route('/admin/classes/add', methods=['GET', 'POST'])
 def add_class():
     if session.get('role') != 'admin':
