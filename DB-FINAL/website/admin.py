@@ -18,15 +18,16 @@ def admin_dashboard():
 
     cursor = mysql.connection.cursor()
     cursor.execute("""
-        SELECT Person.name, Person.email, Users.role
-        FROM Users
-        JOIN Person ON Users.person_ID = Person.person_ID
-        WHERE Users.person_ID = %s
+        SELECT person.name, person.email, users.role
+        FROM users
+        JOIN person ON users.person_ID = person.person_ID
+        WHERE users.person_ID = %s
     """, (session['id'],))
     user_data = cursor.fetchone()
     cursor.close()
 
     return render_template('admin_dashboard.html', user=user_data)
+
 
 
 
