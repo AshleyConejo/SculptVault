@@ -149,18 +149,20 @@ def edit_class(class_id):
         time = request.form['time']
         date = request.form['date']
         location_id = request.form['location_id']
-        person_id = request.form['person_id']
+        instructor_id = request.form['instructor_id']
 
         cursor.execute("""
             UPDATE classes
             SET name = %s, time = %s, date = %s, location_ID = %s, instructor_ID = %s
             WHERE class_ID = %s
-        """, (name, time, date, location_id, person_id, class_id))
+        """, (name, time, date, location_id, instructor_id, class_id))
         mysql.connection.commit()
         cursor.close()
+
         flash("Class updated!", "success")
         return redirect(url_for('admin.manage_classes'))
 
+    # Fetch class data
     cursor.execute("SELECT * FROM classes WHERE class_ID = %s", (class_id,))
     class_data = cursor.fetchone()
 
@@ -168,6 +170,7 @@ def edit_class(class_id):
         flash("Class not found!", "error")
         return redirect(url_for('admin.manage_classes'))
 
+    # Get options for dropdowns
     cursor.execute("SELECT location_ID, branch FROM locations")
     locations = cursor.fetchall()
     cursor.execute("""
@@ -178,6 +181,7 @@ def edit_class(class_id):
     cursor.close()
 
     return render_template('edit_class.html', class_data=class_data, locations=locations, coaches=coaches)
+
 
 
 

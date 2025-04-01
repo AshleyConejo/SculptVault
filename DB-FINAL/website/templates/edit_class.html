@@ -24,11 +24,12 @@
         </select>
 
         <label for="person_id">Coach:</label>
-        <select name="person_id" id="person_id" required>
+        <select name="instructor_id" id="instructor_id" required>
             {% for coach in coaches %}
-            <option value="{{ coach[0] }}" {% if coach[0] == class_data[5] %}selected{% endif %}>{{ coach[1] }}</option>
+            <option value="{{ coach[0] }}" {% if coach[0] == class_data[1] %}selected{% endif %}>{{ coach[1] }}</option>
             {% endfor %}
         </select>
+        
 
         <button type="submit">Save Changes</button>
     </form>
