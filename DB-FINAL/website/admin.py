@@ -67,7 +67,6 @@ def demote_to_user(user_id):
 
     flash("User demoted to regular user!", "success")
     return redirect(url_for('admin.manage_users'))
-
 @admin.route('/admin/classes')
 def manage_classes():
     if 'loggedin' not in session or session.get('role') not in ['staff', 'admin']:
@@ -81,7 +80,7 @@ def manage_classes():
             SELECT classes.class_ID, classes.name, classes.time, classes.date,
                    person.name AS coach_name, locations.branch
             FROM classes
-            JOIN staff ON classes.person_ID = staff.person_ID
+            JOIN staff ON classes.instructor_ID = staff.person_ID
             JOIN person ON staff.person_ID = person.person_ID
             JOIN locations ON classes.location_ID = locations.location_ID
         """)
@@ -90,7 +89,7 @@ def manage_classes():
             SELECT classes.class_ID, classes.name, classes.time, classes.date,
                    person.name AS coach_name, locations.branch
             FROM classes
-            JOIN staff ON classes.person_ID = staff.person_ID
+            JOIN staff ON classes.instructor_ID = staff.person_ID
             JOIN person ON staff.person_ID = person.person_ID
             JOIN locations ON classes.location_ID = locations.location_ID
             WHERE staff.person_ID = %s
@@ -100,6 +99,7 @@ def manage_classes():
     cursor.close()
 
     return render_template('admin_classes.html', classes=classes)
+
 @admin.route('/admin/classes/add', methods=['GET', 'POST'])
 def add_class():
     if session.get('role') != 'admin':
@@ -181,9 +181,6 @@ def edit_class(class_id):
     cursor.close()
 
     return render_template('edit_class.html', class_data=class_data, locations=locations, coaches=coaches)
-
-
-
 
 
 @admin.route('/admin/classes/delete/<int:class_id>')

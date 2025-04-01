@@ -6,8 +6,18 @@
 <link rel="stylesheet" href="{{url_for('static', filename='admin_dashboard.css')}}">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
 
+<aside class="admin-sidebar">
+    <h2>Admin Dashboard</h2>
+    <ul>
+        {% if session.get('role') == 'admin' %}
+        <li><a href="{{ url_for('admin.admin_dashboard') }}">Admin Dashboard</a></li>
+        {% endif %}
+        <li><a href="{{ url_for('admin.manage_users') }}">Manage Users</a></li>
+        <li><a href="{{ url_for('admin.manage_classes') }}">View Assigned Classes</a></li>
+    </ul>
+</aside>
 
-<div class="admin-container">
+<!--<div class="admin-container">
     <aside class="admin-sidebar">
         <h2>Admin Dashboard</h2>
         <ul>
@@ -15,13 +25,13 @@
             <li><a href="{{ url_for('admin.manage_users') }}">Manage Users</a></li>
             <li><a href="{{ url_for('admin.manage_classes') }}">View Assigned Classes</a></li>
         </ul>
-    </aside>
+    </aside>-->
 
     <main class="admin-main">
         <h2>Welcome, {{ user[0] }}!</h2>
        
         <p>Select an option from the sidebar to manage the system.</p>
-        <p>Admins are allowed to manage users and their roles, as well as keeping track of the different classes and the instructor. </p>
+        <p>Admins are allowed to manage users and their roles, as well as keeping track of the different classes and the instructor.</p>
     </main>    
 </div>
 

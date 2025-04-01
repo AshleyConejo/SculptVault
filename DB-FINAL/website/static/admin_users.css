@@ -1,9 +1,14 @@
 /* General page styling */
 body {
+    font-family: 'Open Sans', sans-serif;
     background-color: #f8f9fa;
     color: #333;
     margin: 0;
     padding: 0;
+}
+
+.h2{
+    color: #600000;
 }
 
 /* Admin layout */
