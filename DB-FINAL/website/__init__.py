@@ -10,12 +10,12 @@ def application():
     app = Flask(__name__)
 
     # Railway DB config
-    app.config['SECRET_KEY'] = 'ACHLI'
-    app.config['MYSQL_HOST'] = 'shinkansen.proxy.rlwy.net'
-    app.config['MYSQL_PORT'] = 48324
-    app.config['MYSQL_USER'] = 'root'
-    app.config['MYSQL_PASSWORD'] = 'VbckqelZgKDVuQqCinBlusRoKnuvULcV'
-    app.config['MYSQL_DB'] = 'railway'
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+    app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST')
+    app.config['MYSQL_PORT'] = int(os.environ.get('MYSQL_PORT'))
+    app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER')
+    app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD')
+    app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
 
     # Initialize MySQL
     mysql.init_app(app)
