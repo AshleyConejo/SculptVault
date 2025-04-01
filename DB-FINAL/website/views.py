@@ -13,7 +13,7 @@ def home():
 @views.route('/locations')
 def locations():
     cursor = mysql.connection.cursor(DictCursor)  
-    cursor.execute("SELECT * FROM Locations")
+    cursor.execute("SELECT * FROM locations")
     locations = cursor.fetchall()
     cursor.close()
 
