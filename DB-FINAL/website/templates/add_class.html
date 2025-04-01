@@ -2,6 +2,7 @@
 {% block title %}Add Class{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='add_class.css')}}">
 <h2>Add New Class</h2>
 <form method="POST">
     <label>Name:</label><input type="text" name="name" required><br>

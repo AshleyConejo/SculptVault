@@ -1,0 +1,72 @@
+body {
+    background-color: #000;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.edit-class-container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #111;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.edit-class-container h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+form label {
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    border-color: #a00;
+}
+
+form button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #7d0f0f;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form button:hover {
+    background-color: #a4161a;
+}
+
+@media (max-width: 600px) {
+    .edit-class-container {
+        margin: 30px 15px;
+    }
+}

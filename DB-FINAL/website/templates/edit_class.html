@@ -2,6 +2,8 @@
 {% block title %}Edit Class{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin_edit_class.css') }}">
+
 <h2>Edit Class</h2>
 <form method="POST">
     <label>Name:</label><input type="text" name="name" value="{{ class_data[1] }}" required><br>

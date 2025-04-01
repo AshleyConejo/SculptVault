@@ -128,23 +128,17 @@ h1, h2, h3 {
     }
 }
 
+
+
 .classes-main {
     padding: 20px;
     font-family: 'Open Sans', sans-serif;
-    background: #f7f7f7;
     min-height: 100vh;
 }
 
 h2 {
     font-family: 'Oswald', sans-serif;
     margin-bottom: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 th, td {
@@ -154,7 +148,6 @@ th, td {
 }
 
 th {
-    background-color: #efefef;
     font-weight: bold;
 }
 
@@ -166,7 +159,7 @@ tr:hover {
     display: inline-block;
     margin-bottom: 15px;
     padding: 8px 14px;
-    background-color: #28a745;
+    background-color: #600000;
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -174,11 +167,11 @@ tr:hover {
 }
 
 .btn-add:hover {
-    background-color: #218838;
+    background-color: #724e4e;
 }
 
 a {
-    color: #007bff;
+    color: #600000;
     text-decoration: none;
     margin-right: 6px;
 }
@@ -205,7 +198,7 @@ form select {
 form button {
     margin-top: 16px;
     padding: 10px 16px;
-    background-color: #007bff;
+    background-color: #600000;
     border: none;
     color: white;
     font-weight: bold;
@@ -214,5 +207,5 @@ form button {
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background-color: #600000;
 }
