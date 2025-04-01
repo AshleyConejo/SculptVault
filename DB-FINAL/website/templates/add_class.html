@@ -10,14 +10,14 @@
     <label>Date:</label><input type="date" name="date" required><br>
     
     <label>Location:</label>
-    <select name="location_ID" required>
+    <select name="location_id" required>  <!-- lowercase -->
         {% for loc in locations %}
         <option value="{{ loc[0] }}">{{ loc[1] }}</option>
         {% endfor %}
     </select><br>
 
     <label>Coach:</label>
-    <select name="person_ID" required>
+    <select name="person_id" required>  <!-- lowercase -->
         {% for coach in coaches %}
         <option value="{{ coach[0] }}">{{ coach[1] }}</option>
         {% endfor %}
