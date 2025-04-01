@@ -1,22 +1,27 @@
 {% extends "base.html" %}
-
 {% block title %}Edit Class{% endblock %}
 
 {% block content %}
 <h2>Edit Class</h2>
-<form action="{{ url_for('views.edit_class', class_id=class_data[0]) }}" method="post">
-    <label for="class_name">Class Name:</label>
-    <input type="text" id="class_name" name="class_name" value="{{ class_data[1] }}" required>
+<form method="POST">
+    <label>Name:</label><input type="text" name="name" value="{{ class_data[1] }}" required><br>
+    <label>Time:</label><input type="time" name="time" value="{{ class_data[2] }}" required><br>
+    <label>Date:</label><input type="date" name="date" value="{{ class_data[3] }}" required><br>
+    
+    <label>Location:</label>
+    <select name="location_ID" required>
+        {% for loc in locations %}
+        <option value="{{ loc[0] }}" {% if loc[0] == class_data[5] %}selected{% endif %}>{{ loc[1] }}</option>
+        {% endfor %}
+    </select><br>
 
-    <label for="class_time">Class Time:</label>
-    <input type="time" id="class_time" name="class_time" value="{{ class_data[2] }}" required>
+    <label>Coach:</label>
+    <select name="person_ID" required>
+        {% for coach in coaches %}
+        <option value="{{ coach[0] }}" {% if coach[0] == class_data[4] %}selected{% endif %}>{{ coach[1] }}</option>
+        {% endfor %}
+    </select><br>
 
-    <label for="class_date">Class Date:</label>
-    <input type="date" id="class_date" name="class_date" value="{{ class_data[3] }}" required>
-
-    <label for="location">Location:</label>
-    <input type="text" id="location" name="location" value="{{ class_data[4] }}" required>
-
-    <button type="submit">Update Class</button>
+    <button type="submit">Save Changes</button>
 </form>
 {% endblock %}

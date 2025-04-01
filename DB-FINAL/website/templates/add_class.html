@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Add Class{% endblock %}
+
+{% block content %}
+<h2>Add New Class</h2>
+<form method="POST">
+    <label>Name:</label><input type="text" name="name" required><br>
+    <label>Time:</label><input type="time" name="time" required><br>
+    <label>Date:</label><input type="date" name="date" required><br>
+    
+    <label>Location:</label>
+    <select name="location_ID" required>
+        {% for loc in locations %}
+        <option value="{{ loc[0] }}">{{ loc[1] }}</option>
+        {% endfor %}
+    </select><br>
+
+    <label>Coach:</label>
+    <select name="person_ID" required>
+        {% for coach in coaches %}
+        <option value="{{ coach[0] }}">{{ coach[1] }}</option>
+        {% endfor %}
+    </select><br>
+
+    <button type="submit">Add Class</button>
+</form>
+{% endblock %}
